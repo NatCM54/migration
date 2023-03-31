@@ -24,3 +24,4 @@ main
 
 # Development
 .development/data*
+.vscode

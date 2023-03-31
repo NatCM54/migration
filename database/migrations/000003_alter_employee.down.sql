@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS employee_test2;
+DROP TABLE IF EXISTS employee_test_2;

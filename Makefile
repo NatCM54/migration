@@ -13,3 +13,6 @@ migrate_fix:
 
 migrate_create:
 	migrate create -ext sql -dir $(MIGRATION_FILES_PATH) -seq $(title)
+
+go_migrate_up:
+	go run . migrate up $(step)
