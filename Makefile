@@ -3,10 +3,10 @@ MAKEFLAGS += --no-print-directory
 include local.env
 
 migrate_up:
-	migrate -path $(MIGRATION_FILES_PATH) -database "mysql://$(DB_MYSQL_USERNAME):$(DB_MYSQL_PASSWORD)@tcp($(DB_MYSQL_HOST):$(DB_MYSQL_PORT))/$(DB_MYSQL_DATABASE)" -verbose up
+	migrate -path $(MIGRATION_FILES_PATH) -database "mysql://$(DB_MYSQL_USERNAME):$(DB_MYSQL_PASSWORD)@tcp($(DB_MYSQL_HOST):$(DB_MYSQL_PORT))/$(DB_MYSQL_DATABASE)" -verbose up $(step)
 
 migrate_down:
-	migrate -path $(MIGRATION_FILES_PATH) -database "mysql://$(DB_MYSQL_USERNAME):$(DB_MYSQL_PASSWORD)@tcp($(DB_MYSQL_HOST):$(DB_MYSQL_PORT))/$(DB_MYSQL_DATABASE)" -verbose down
+	migrate -path $(MIGRATION_FILES_PATH) -database "mysql://$(DB_MYSQL_USERNAME):$(DB_MYSQL_PASSWORD)@tcp($(DB_MYSQL_HOST):$(DB_MYSQL_PORT))/$(DB_MYSQL_DATABASE)" -verbose down $(step)
 
 migrate_fix:
 	migrate -path $(MIGRATION_FILES_PATH) -database "mysql://$(DB_MYSQL_USERNAME):$(DB_MYSQL_PASSWORD)@tcp($(DB_MYSQL_HOST):$(DB_MYSQL_PORT))/$(DB_MYSQL_DATABASE)" force $(version)
