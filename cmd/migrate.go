@@ -19,13 +19,14 @@ var migrateCmd = &cobra.Command{
 		action := args[0]
 		step, _ := strconv.Atoi(args[1])
 		m := lib.Migrate()
+
 		if action == "up" {
 			m.Steps(step)
+			fmt.Println("Running migrate up command")
 		} else if action == "down" {
 			m.Steps(step * (-1))
+			fmt.Println("Running migrate down command")
 		}
-
-		fmt.Println("Running migrate down command")
 	},
 }
 

@@ -8,7 +8,7 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "migrate",
+	Use:   "mcli",
 	Short: "Root command for our application",
 	Long:  `Root command for our application, the main purpose is to help setup subcommands`,
 }

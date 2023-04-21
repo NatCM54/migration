@@ -1,12 +1,25 @@
 package lib
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
 	"log"
+	"time"
+
+	"gorm.io/gorm/logger"
 
 	"migrate/config"
 )
+
+type SqlLogger struct {
+	logger.Interface
+}
+
+func (l SqlLogger) Trace(ctx context.Context, begin time.Time, fc func() (sql string, rowsAffected int64), err error) {
+	sql, _ := fc()
+	fmt.Printf("%v\n========================\n", sql)
+}
 
 func NewMySql() *sql.DB {
 	env, err := config.LoadConfig(".")
